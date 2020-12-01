@@ -2,7 +2,7 @@ package com.zm.excel.demo.excel;
 
 import com.zm.excel.demo.annotation.ColumnWidth;
 import com.zm.excel.demo.annotation.DateTimeFormat;
-import com.zm.excel.demo.annotation.ExcelProperty;
+import com.zm.excel.demo.annotation.ExcelHeader;
 import com.zm.excel.demo.dto.ExcelRecord;
 import com.zm.excel.demo.utils.BeanUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -112,8 +112,8 @@ public abstract class ExcelBatchWriter<E,T> {
             tempClass = tempClass.getSuperclass();
         }
         for (Field field : tempFieldList) {
-            ExcelProperty excelProperty = field.getAnnotation(ExcelProperty.class);
-            headers.addAll(Arrays.asList(excelProperty.value()));
+            ExcelHeader excelHeader = field.getAnnotation(ExcelHeader.class);
+            headers.addAll(Arrays.asList(excelHeader.value()));
             fields.add(field);
         }
     }

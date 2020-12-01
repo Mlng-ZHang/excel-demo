@@ -5,9 +5,9 @@ import java.lang.annotation.*;
 /**
  * 借鉴参考easyexcel
  */
-@Target({ElementType.FIELD, ElementType.TYPE})
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface ColumnWidth {
-    int value() default -1;
+public @interface ExcelHeader {
+    String[] value() default {""};
 }
